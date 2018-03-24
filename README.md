@@ -44,6 +44,33 @@ Received: testMessage1
 
 ## Multi-server system
 
-@TO-DO
+Below are some examples for using with both the server and client:
 
+### 1. Terminal input for localhost server
+```
+cd .../Project/'MultiServer - Network'/bin
+java -jar activityServer.jar -lh 127.0.0.1 -lp 5000
+```
+
+### 2. Terminal input for localhost client
+```
+cd .../Project/'MultiServer - Network'/bin
+java -jar activityClient.jar -rh 127.0.0.1 -rp 5000
+```
+
+### 3. Expected output for localhost server
+At this moment the server is not receiving requests yet
+```
+[main] INFO  activitystreamer.Server reading command line options
+[main] INFO  activitystreamer.Server starting server
+[Thread-2] INFO  activitystreamer.server.Listener listening for new connections on 5000
+```
+
+### 3. Expected output for localhost client
+At this moment the client is not sending requests yet
+```
+[main] INFO  activitystreamer.Client reading command line options
+[main] INFO  activitystreamer.Client starting client
+
+```
 

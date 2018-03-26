@@ -121,4 +121,5 @@ public class Control extends Thread {
 	public final ArrayList<Connection> getConnections() {
 		return connections;
 	}
+
 }

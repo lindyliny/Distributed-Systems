@@ -7,6 +7,7 @@ import java.security.SecureRandom;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+
 public class Settings {
 	private static final Logger log = LogManager.getLogger();
 	private static SecureRandom random = new SecureRandom();
@@ -95,8 +96,6 @@ public class Settings {
 	public static String nextSecret() {
 	    return new BigInteger(130, random).toString(32);
 	 }
-
-
-
+	
 	
 }

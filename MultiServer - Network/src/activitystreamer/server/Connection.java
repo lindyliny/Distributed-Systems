@@ -4,6 +4,7 @@ package activitystreamer.server;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -12,6 +13,10 @@ import java.net.Socket;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.google.gson.JsonParser;
+
+import activitystreamer.util.JsonFiles;
+import activitystreamer.util.Routes;
 import activitystreamer.util.Settings;
 
 
@@ -65,9 +70,27 @@ public class Connection extends Thread {
 	public void run(){
 		try {
 			String data;
-			while(!term && (data = inreader.readLine())!=null){
+			log.debug("server reading data");
+			
+			//while(term==false && (data = inreader.readLine())!=null){
+			//data = in.readUTF().toString();
+			//data = inreader.readLine();
+			while(term==false && (data = in.readUTF().toString())!=null){
 				term=Control.getInstance().process(this,data);
+				try {
+					// an echo server
+					log.info("server writing data: "+data);
+					//Routes class decide what to do with the request command 
+					Routes r = new Routes(data);
+					out.writeUTF(data);
+					closeCon();
+				}catch (EOFException e){
+					log.debug("EOF:"+e.getMessage());
+				} catch(IOException e) {
+					log.debug("readline:"+e.getMessage());
+				}
 			}
+		
 			log.debug("connection closed to "+Settings.socketAddress(socket));
 			Control.getInstance().connectionClosed(this);
 			in.close();

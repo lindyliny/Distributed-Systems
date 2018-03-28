@@ -82,7 +82,8 @@ public class Connection extends Thread {
 					log.info("server writing data: "+data);
 					//Routes class decide what to do with the request command 
 					Routes r = new Routes(data);
-					out.writeUTF(data);
+					
+					out.writeUTF(r.getResponse());
 					closeCon();
 				}catch (EOFException e){
 					log.debug("EOF:"+e.getMessage());

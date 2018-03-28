@@ -25,14 +25,16 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
+import activitystreamer.server.Control;
+
 @SuppressWarnings("serial")
 public class TextFrame extends JFrame implements ActionListener {
-	private static final Logger log = LogManager.getLogger();
 	private JTextArea inputText;
 	private JTextArea outputText;
 	private JButton sendButton;
 	private JButton disconnectButton;
 	private JSONParser parser = new JSONParser();
+	private static final Logger log = LogManager.getLogger();
 	
 	public TextFrame(){
 		setTitle("ActivityStreamer Text I/O");
@@ -92,6 +94,7 @@ public class TextFrame extends JFrame implements ActionListener {
 			System.out.println("sdf");
 			String msg = inputText.getText().trim().replaceAll("\r","").replaceAll("\n","").replaceAll("\t", "");
 			System.out.println("Raw Request: "+msg);
+			
 			JSONObject obj;
 			JSONObject jsonReceived;
 			try {

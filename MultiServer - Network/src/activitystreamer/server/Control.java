@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import activitystreamer.util.Routes;
 import activitystreamer.util.Settings;
 
 public class Control extends Thread {
@@ -48,6 +49,7 @@ public class Control extends Thread {
 		}
 	}
 	
+	
 	/*
 	 * Processing incoming messages from the connection.
 	 * Return true if the connection should close.
@@ -84,6 +86,8 @@ public class Control extends Thread {
 		return c;
 		
 	}
+	
+	
 	
 	@Override
 	public void run(){

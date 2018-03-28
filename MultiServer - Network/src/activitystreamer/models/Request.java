@@ -8,9 +8,15 @@ public class Request {
 	String username;
 	String hostname;
 	String activity; 
-	int id;
-	int load;
-	int port;
+	transient int id;
+	transient int load;
+	transient int port;
+	
+	
+	public Request(String command, String info) {
+		this.command = command;
+		this.info = info;
+	}
 	public String getCommand() {
 		return command;
 	}

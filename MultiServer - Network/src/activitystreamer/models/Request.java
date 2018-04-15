@@ -2,7 +2,7 @@ package activitystreamer.models;
 
 public class Request {
 
-	String command;
+	Commands command;
 	String secret;
 	String info;
 	String username;
@@ -13,14 +13,14 @@ public class Request {
 	transient int port;
 	
 	
-	public Request(String command, String info) {
+	public Request(Commands command, String info) {
 		this.command = command;
 		this.info = info;
 	}
-	public String getCommand() {
+	public Commands getCommand() {
 		return command;
 	}
-	public void setCommand(String command) {
+	public void setCommand(Commands command) {
 		this.command = command;
 	}
 	public String getSecret() {

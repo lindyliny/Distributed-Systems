@@ -7,9 +7,9 @@ public enum Commands {
 	LOCK_DENIED, LOCK_ALLOWED;
 
 
-	public static boolean contains(String test) {
+	public static boolean contains(Commands commands) {
 		for (Commands c : Commands.values()) {
-	        if (c.name().equals(test)) {
+	        if (c.name().equals(commands)) {
 	            return true;
 	        }
 	    }

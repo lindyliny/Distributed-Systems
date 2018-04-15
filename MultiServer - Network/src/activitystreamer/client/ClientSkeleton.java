@@ -16,6 +16,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import activitystreamer.server.Routes;
 import activitystreamer.util.Settings;
 
 public class ClientSkeleton extends Thread {

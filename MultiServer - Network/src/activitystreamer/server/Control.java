@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import activitystreamer.util.Routes;
 import activitystreamer.util.Settings;
 
 public class Control extends Thread {

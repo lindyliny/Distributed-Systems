@@ -16,7 +16,6 @@ import org.apache.logging.log4j.Logger;
 import com.google.gson.JsonParser;
 
 import activitystreamer.util.JsonFiles;
-import activitystreamer.util.Routes;
 import activitystreamer.util.Settings;
 
 
@@ -80,7 +79,7 @@ public class Connection extends Thread {
 				try {
 					// an echo server
 					log.info("server writing data: "+data);
-					//Routes class decide what to do with the request command 
+					//Routes class decides what to do with the request command 
 					Routes r = new Routes(data);
 					
 					out.writeUTF(r.getResponse());
